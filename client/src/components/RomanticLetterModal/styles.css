@@ -1,0 +1,64 @@
+/* Romantic Letter Modal Animations & Styles */
+.letter-modal-backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.letter-modal-card {
+  background: rgba(25, 15, 45, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 75, 139, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 75, 139, 0.35);
+  animation: scaleUpIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.envelope-hex-container {
+  background: linear-gradient(135deg, rgba(255, 75, 139, 0.25), rgba(168, 85, 247, 0.25));
+  border: 2px solid rgba(255, 75, 139, 0.6);
+  box-shadow: 0 0 25px rgba(255, 75, 139, 0.5);
+  animation: pulseGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 75, 139, 0.4), 0 0 35px rgba(168, 85, 247, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(255, 75, 139, 0.8), 0 0 55px rgba(168, 85, 247, 0.6);
+  }
+}
+
+/* Blinking Cursor for Typewriter Effect */
+.blinking-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #ff4b8b;
+  margin-right: 2px;
+  vertical-align: middle;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

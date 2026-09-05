@@ -1,0 +1,90 @@
+/* Entry Card specific animations */
+.entry-card-enter {
+  animation: cardScaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Romantic Animated Avatar Ring */
+.avatar-ring-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ff4b8b, #9333ea, #f43f5e, #a855f7, #ff4b8b);
+  background-size: 300% 300%;
+  animation: avatarGradientShift 4s ease infinite, avatarBreathingGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes avatarGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes avatarBreathingGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 75, 139, 0.4), 0 0 30px rgba(147, 51, 234, 0.3);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 32px rgba(255, 75, 139, 0.85), 0 0 60px rgba(244, 63, 94, 0.6);
+    transform: scale(1.04);
+  }
+}
+
+/* Image zoom & tilt animation on hover */
+.avatar-img-animated {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-ring-wrapper:hover .avatar-img-animated {
+  transform: scale(1.12) rotate(3deg);
+}
+
+/* Floating pulse heart & emoji badges */
+.avatar-badge-float {
+  animation: heartFloatPulse 2.4s ease-in-out infinite;
+}
+
+.avatar-badge-delay-1 {
+  animation-delay: 0.4s;
+}
+
+.avatar-badge-delay-2 {
+  animation-delay: 0.9s;
+}
+
+.avatar-badge-delay-3 {
+  animation-delay: 1.4s;
+}
+
+.avatar-badge-delay-4 {
+  animation-delay: 1.9s;
+}
+
+@keyframes heartFloatPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.18) rotate(6deg);
+  }
+}

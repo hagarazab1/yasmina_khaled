@@ -1,0 +1,22 @@
+.tap-heart-particle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: burstFloat 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  user-select: none;
+  filter: drop-shadow(0 0 8px rgba(255, 75, 139, 0.8));
+}
+
+@keyframes burstFloat {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(calc(-50% + var(--vx)), calc(-50% + var(--vy))) scale(1.3) rotate(20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--vx) * 1.5), calc(-50% + var(--vy) * 2)) scale(0.3) rotate(45deg);
+  }
+}

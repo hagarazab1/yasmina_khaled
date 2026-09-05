@@ -1,0 +1,14 @@
+/* Music Player Floating Bar Component Styles */
+.music-player-pill {
+  background: rgba(18, 10, 31, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 75, 139, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.music-player-pill:hover {
+  border-color: rgba(255, 75, 139, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 75, 139, 0.35);
+}

@@ -1,0 +1,9 @@
+.love-quiz-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.love-quiz-btn:active {
+  transform: scale(0.98);
+}
