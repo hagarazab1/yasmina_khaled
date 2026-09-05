@@ -11,20 +11,23 @@ export default function LoveQuiz() {
     setSelectedOption(optionId);
   };
 
-  const handleDodgeAction = (e) => {
+  const handleDodgeClick = (e) => {
+    e.stopPropagation();
     if (dodgedCount < 3) {
-      if (e?.type === 'click' || e?.type === 'touchstart') {
-        e?.preventDefault();
-        e?.stopPropagation();
-      }
       const nextCount = dodgedCount + 1;
       setDodgedCount(nextCount);
 
-      // Random dodge offset to make button playfully run away on mobile & desktop
-      const x = Math.floor((Math.random() - 0.5) * 140);
-      const y = Math.floor((Math.random() - 0.5) * 60);
-      setDodgePosition({ x, y });
-    } else if (e?.type === 'click' || (e?.type === 'touchstart' && dodgedCount >= 3)) {
+      if (nextCount < 3) {
+        // Tap 1 & Tap 2: Move button to random positions
+        const x = Math.floor((Math.random() - 0.5) * 140);
+        const y = Math.floor((Math.random() - 0.5) * 60);
+        setDodgePosition({ x, y });
+      } else {
+        // Tap 3: Stop moving, return to center (0,0), text turns into "بحبه جداً جداً خلاص 😂💖"
+        setDodgePosition({ x: 0, y: 0 });
+      }
+    } else {
+      // Tap 4: Clicking "بحبه جداً جداً خلاص 😂💖" shows the final response
       handleOptionClick(3);
     }
   };
@@ -76,9 +79,7 @@ export default function LoveQuiz() {
 
           {/* Playful Dodge Button matching colors with above options */}
           <button
-            onMouseEnter={handleDodgeAction}
-            onTouchStart={handleDodgeAction}
-            onClick={handleDodgeAction}
+            onClick={handleDodgeClick}
             style={{
               transform: `translate(${dodgePosition.x}px, ${dodgePosition.y}px)`,
             }}
@@ -99,10 +100,9 @@ export default function LoveQuiz() {
           <p className="text-xl sm:text-2xl font-black text-pink-200 leading-relaxed">
             {selectedOption === 1 && 'وأنا بجد بموت فيكي وبحبك أكتر يا روح قلبي يا أجمل ياسمين في الدنيا ❤️'}
             {selectedOption === 2 && 'خالد بيعشقك يا ياسمين ومستحيل يستغنى عنك أبداً يا كل حياتي 💖'}
-            {selectedOption === 3 && 'حتى لما حاولتي تظرفي وتقولي نص نص، مفيش مفر.. خالد بيعشقك وبيموت فيكي يا أجمل ياسمين 😂💖'}
+            {selectedOption === 3 && 'حتى لما حاولتي تستظرفي وتقولي نص نص، مفيش مفر.. خالد بيعشقك وبيموت فيكي يا أجمل ياسمين 😂💖'}
           </p>
           <div className="flex items-center justify-center gap-2 text-pink-400 pt-1 font-bold">
-            <Heart className="w-6 h-6 fill-pink-500 text-pink-500 animate-pulse" />
             <span>خالد ❤️ ياسمين</span>
           </div>
         </div>
